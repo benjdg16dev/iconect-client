@@ -9,7 +9,7 @@
   background-color: var(--neutral-white);
   border-radius: var(--border-radius);
   box-sizing: border-box;
-  /* height: 55%; */
+  height: 55%;
   width: 55%;
   padding: var(--padding);
   box-shadow: var(--box-shadow);

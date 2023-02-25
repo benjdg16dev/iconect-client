@@ -1,7 +1,7 @@
 import React from "react";
 
 import DragAndDrop from "../DragAndDrop";
-import Form from "../Form";
+import Batches from "../Batches";
 
 import "./styles.css";
 
@@ -9,7 +9,7 @@ const App = () => (
   <div className="app">
     <div className="app-box">
       <DragAndDrop />
-      {/* <Form /> */}
+      <Batches />
     </div>
   </div>
 );
