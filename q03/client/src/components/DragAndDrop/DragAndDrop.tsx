@@ -4,8 +4,9 @@ import React, {
   ChangeEvent,
   DragEvent,
   FormEvent,
+  MouseEvent,
 } from "react";
-import axios from "axios";
+import axios, { AxiosProgressEvent } from "axios";
 
 import { SERVER_CONFIG } from "../../constants/server";
 import { FileUploadIcon } from "../subcomponents/Icon";
@@ -18,6 +19,7 @@ const DragAndDrop = () => {
   const [fileList, setFileList] = useState<FileList | null>(null);
   const [custodianName, setCustodianName] = useState<string>("");
   const [isSwitched, setIsSwitched] = useState<boolean>(false);
+  const [uploadPercentage, setUploadPercentage] = useState<number>(0);
 
   // const [uploadedFile, setUploadedFile] = useState<>();
 
@@ -49,6 +51,11 @@ const DragAndDrop = () => {
     setCustodianName(e.target.value);
   };
 
+  const handleBack = (e: MouseEvent) => {
+    setIsSwitched(false);
+    console.log(fileList);
+  };
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setIsSwitched(false);
@@ -63,14 +70,21 @@ const DragAndDrop = () => {
       }
     }
 
-    // formData.append("fileList", fileList as any, custodianName);
-
-    console.log(formData);
     try {
-      // Note: Proxy http://localhost:8080
       const res = await axios.post("http://localhost:8080/upload", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
+        },
+        onUploadProgress: (progressEvent: AxiosProgressEvent) => {
+          console.log(`HEY`);
+          console.log(progressEvent);
+          const { total, loaded } = progressEvent;
+          if (!!total && !!loaded) {
+            setUploadPercentage(Math.round((loaded * 100) / total));
+            Math.round((loaded * 100) / total);
+          }
+
+          // Clear percentage
         },
       });
 
@@ -95,26 +109,56 @@ const DragAndDrop = () => {
   return (
     <>
       <div className="drag-and-drop-container">
-        <form onSubmit={handleSubmit}>
-          {isSwitched ? (
-            <div className="custodian">
-              <input
-                type="text"
-                name="custodian-name"
-                id="custodian-name"
-                onChange={handleCustodianInput}
-              />
-              <button type="submit">Submit</button>
-            </div>
-          ) : (
-            <div
-              className="drag-and-drop"
-              onDragOver={handleDragEnter}
-              onDrop={handleFiles}
-            >
+        <form className="drag-and-drop-form" onSubmit={handleSubmit}>
+          <div
+            className="drag-and-drop"
+            onDragOver={handleDragEnter}
+            onDrop={handleFiles}
+          >
+            {isSwitched ? (
+              <div className="custodian">
+                <div className="custodian-title">
+                  <h3>
+                    {fileList
+                      ? `Uploading ${fileList.length} file${
+                          fileList.length > 1 ? `s` : ""
+                        }`
+                      : `Files not found.`}
+                  </h3>
+                  <span>
+                    Please input a custodian name before submitting or click go
+                    back to start again.
+                  </span>
+                </div>
+                <div className="custodian-name-input">
+                  <label id="custodian-name-label" htmlFor="custodian-name">
+                    Custodian name
+                  </label>
+                  <input
+                    type="text"
+                    name="custodian-name"
+                    id="custodian-name"
+                    required
+                    onChange={handleCustodianInput}
+                  />
+                </div>
+                <div className="custodian-buttons">
+                  <button type="submit" disabled={!custodianName}>
+                    Submit
+                  </button>
+                  <button
+                    className="secondary"
+                    type="button"
+                    onClick={handleBack}
+                  >
+                    Go back
+                  </button>
+                </div>
+              </div>
+            ) : (
               <div className="drag-and-drop-overlay" ref={overlayRef}>
                 <div className="drag-and-drop-icon">
-                  <FileUploadIcon size={80} color={"#8dc63f"} />
+                  <FileUploadIcon size={80} color={"#75a478"} />
                 </div>
                 <div className="drag-and-drop-title">
                   <h2>Drag and drop files to upload</h2>
@@ -138,8 +182,8 @@ const DragAndDrop = () => {
                   </label>
                 </div>
               </div>
-            </div>
-          )}
+            )}
+          </div>
         </form>
       </div>
     </>
