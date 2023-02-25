@@ -9,7 +9,7 @@ const App = () => (
   <div className="app">
     <div className="app-box">
       <DragAndDrop />
-      <Form />
+      {/* <Form /> */}
     </div>
   </div>
 );

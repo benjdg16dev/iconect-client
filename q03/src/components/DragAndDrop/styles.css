@@ -1,8 +1,44 @@
 .drag-and-drop {
   box-sizing: border-box;
-  border: 2px dashed var(--brand-green);
+  border: 4px dashed var(--brand-green);
   border-radius: var(--border-radius);
   height: 100%;
   width: 100%;
-  flex: 1 1 45%;
+  padding: 12px;
+}
+
+.drag-and-drop-overlay {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.drag-and-drop-overlay.dragging {
+  opacity: 0.5;
+}
+
+.drag-and-drop-icon {
+  margin-bottom: 12px;
+}
+
+.drag-and-drop-title {
+  color: var(--brand-gray);
+  margin-bottom: 12px;
+}
+
+.drag-and-drop-input {
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.drag-and-drop-input label {
+  color: var(--neutral-grey-2);
+  font-size: 14px;
 }

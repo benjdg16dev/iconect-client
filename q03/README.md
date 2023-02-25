@@ -33,3 +33,9 @@ User must be able to...
 - Different icons for different files.
 - Timer input for "mock" loading state
 - Filter functionality for uploaded files
+
+## Difficulties
+
+- Drag event
+  - I used `dragOver` with `e.preventDefault()` and `e.stopPropagation` to make drop event work
+  - https://stackoverflow.com/questions/50230048/react-ondrop-is-not-firing
