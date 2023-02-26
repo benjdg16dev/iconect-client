@@ -1,7 +1,0 @@
-application/vnd.openxmlformats-officedocument.wordprocessingml.document - wordprocessingml
-application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
-application/pdf
-
-image/jpeg
-
-text/plain

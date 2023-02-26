@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from "react";
 
 import { TBatch, TBatchList } from "../App/App.types";
+import NoFilesFound from "../subcomponents/NoFilesFound";
 
 import Batch from "./Batch";
 import "./style.css";
-
-const renderNoFiles = () => {
-  return <div className="no-files">No files uploaded.</div>;
-};
 
 const hasFiles = false;
 
@@ -16,6 +13,7 @@ interface IBatches {
 }
 
 const Batches = ({ batchList }: IBatches) => {
+  console.log(batchList);
   // const [batches, setBatches] = useState<TBatchList>([]);
 
   // useEffect(() => {
@@ -28,14 +26,17 @@ const Batches = ({ batchList }: IBatches) => {
     <div className="batches-container">
       <div className="batches">
         <div className="batches-header">
-          <h1>Upload file</h1>
+          <h1>Uploaded file/s</h1>
         </div>
-        <div className="batches-body">
-          {/* {hasFiles ? <div className="list"></div> : renderNoFiles()} */}
-          {batchList
-            ? batchList.map((batch: TBatch) => <Batch batch={batch} />)
-            : null}
-        </div>
+        {batchList && batchList.length > 0 ? (
+          <div className="batches-body">
+            {batchList.map((batch: TBatch) => (
+              <Batch batch={batch} />
+            ))}
+          </div>
+        ) : (
+          <NoFilesFound />
+        )}
       </div>
     </div>
   );

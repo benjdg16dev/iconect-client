@@ -17,13 +17,8 @@
   --background-amber: #fff8e1;
   --background-light-amber: #ffffff;
   --background-dark-amber: #ccc5af;
+  --background-light-green: #f5fcf2;
 
-  /* --linear-gradient-green: linear-gradient(
-    90deg,
-    rgba(140, 198, 63, 1) 0%,
-    rgba(97, 202, 122, 1) 55%,
-    rgba(0, 212, 255, 1) 100%
-  ); */
   --linear-gradient-green: linear-gradient(
     51deg,
     rgba(201, 230, 163, 1) 0%,
@@ -41,6 +36,11 @@
   --padding: 24px;
 }
 
+html,
+body {
+  font-size: 16px !important;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -48,13 +48,16 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
-  height: 100vh;
+  /* background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%); */
+  background-color: #e5e5f7;
+  opacity: 1;
+  background-image: radial-gradient(#37c55f 1.1px, #e5e5f7 1.1px);
+  background-size: 22px 22px;
 }
 
 #root {
-  height: 100%;
-  width: 100%;
+  /* height: 100%;
+  width: 100%; */
 }
 
 h1,
@@ -142,4 +145,24 @@ input {
 
 input:hover {
   border-color: var(--primary-green);
+}
+
+/* Media Query */
+
+@media (min-width: 320px) {
+}
+@media (min-width: 481px) {
+  /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+}
+@media (min-width: 641px) {
+  /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+}
+@media (min-width: 961px) {
+  /* tablet, landscape iPad, lo-res laptops ands desktops */
+}
+@media (min-width: 1025px) {
+  /* big landscape tablets, laptops, and desktops */
+}
+@media (min-width: 1281px) {
+  /* hi-res laptops and desktops */
 }

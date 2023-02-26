@@ -1,24 +1,39 @@
 .drag-and-drop-container {
-  height: 100%;
-  width: 100%;
-  flex: 1 1 45%;
+  margin-bottom: 16px;
 }
 
 .drag-and-drop-form {
-  height: 100%;
-  width: 100%;
+  /* height: 100%;
+  width: 100%; */
 }
 
 .drag-and-drop {
   box-sizing: border-box;
   border: 4px dashed var(--primary-dark-green);
   border-radius: var(--border-radius);
-  padding: 12px;
-  height: 100%;
-  width: 100%;
+  padding: 18px;
+  /* height: 100%;
+  width: 100%; */
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 320px;
+  width: 300px;
+}
+
+@media (min-width: 641px) {
+  /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+  .drag-and-drop {
+    width: 420px;
+  }
+}
+
+@media (min-width: 961px) {
+  /* tablet, landscape iPad, lo-res laptops ands desktops */
+  .drag-and-drop-container {
+    margin-bottom: 0;
+    margin-right: 16px;
+  }
 }
 
 .drag-and-drop-overlay {
@@ -39,7 +54,7 @@
 
 .drag-and-drop-title {
   color: var(--brand-gray);
-  margin-bottom: 36px;
+  margin-bottom: 18px;
 }
 
 .drag-and-drop-input {
@@ -60,7 +75,7 @@ input[type="file"]#input-file-upload {
 }
 
 label#label-file-upload {
-  margin-top: 8px;
+  margin-top: 18px;
 }
 
 /* Custodian */

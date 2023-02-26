@@ -1,9 +1,22 @@
 /* Batches */
 .batches-container {
   box-sizing: border-box;
-  height: 100%;
-  width: 100%;
-  flex: 1 1 55%;
+  margin-top: 16px;
+}
+
+@media (min-width: 641px) {
+  /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+  .batches-container {
+    width: 420px;
+  }
+}
+
+@media (min-width: 961px) {
+  /* tablet, landscape iPad, lo-res laptops ands desktops */
+  .batches-container {
+    margin-top: 0;
+    margin-left: 16px;
+  }
 }
 
 .batches {
@@ -20,11 +33,14 @@
 .batches-body {
   display: flex;
   flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
   gap: 8px;
   overflow: auto;
-  height: 100%;
-  width: 100%;
-  padding: 8px;
+
+  height: 240px;
+  /* padding: 8px;
+  border-radius: 8px; */
   border-radius: 8px;
 }
 
@@ -33,10 +49,12 @@
   width: 100%;
   display: flex;
   flex-direction: row;
-  border-radius: 8px;
-  /* box-shadow: var(--box-shadow); */
-  /* box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1); */
-  /* background-color: red; */
+  padding: 0 8px;
+  box-sizing: border-box;
+}
+
+.batch:nth-child(odd) {
+  background-color: var(--background-light-green);
 }
 
 .batch-left-container {

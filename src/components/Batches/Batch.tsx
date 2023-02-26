@@ -34,11 +34,9 @@ const Batch = ({ batch }: IBatch) => {
           "Content-Type": "multipart/form-data",
         },
         onUploadProgress: (progressEvent: AxiosProgressEvent) => {
-          console.log(progressEvent);
           const { total, loaded } = progressEvent;
           if (!!total && !!loaded) {
             setUploadPercentage(Math.round((loaded * 100) / total));
-            console.log(Math.round((loaded * 100) / total));
           }
 
           // Clear percentage

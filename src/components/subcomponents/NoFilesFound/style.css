@@ -1,0 +1,19 @@
+.no-files-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  min-height: 240px;
+}
+
+.no-files-found-svg {
+  height: 120px;
+  width: 120px;
+  margin-bottom: 18px;
+}
+
+.no-files-found-text h3 {
+  margin-bottom: 8px;
+}
