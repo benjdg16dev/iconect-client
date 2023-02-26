@@ -4,6 +4,7 @@ const express = require("express");
 const multer = require("multer");
 const cors = require("cors");
 const path = require("path");
+const fs = require("fs");
 
 const credentials = require("./middleware/credentials");
 const corsOptions = require("./config/corsOptions");
@@ -22,7 +23,13 @@ app.use(cors(corsOptions));
 
 const storage = multer.diskStorage({
   destination: (req, file, callback) => {
-    callback(null, path.join(__dirname, "uploads"));
+    const destPath = path.join(
+      __dirname,
+      "uploads",
+      `${req.body[CLIENT_CONFIG.CUSTODIAN_KEY]}`
+    );
+    fs.mkdirSync(destPath, { recursive: true });
+    callback(null, destPath);
   },
   filename: (req, file, callback) => {
     callback(null, file.originalname);

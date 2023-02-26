@@ -2,24 +2,33 @@ import React, {
   useState,
   useRef,
   ChangeEvent,
+  Dispatch,
   DragEvent,
   FormEvent,
   MouseEvent,
+  SetStateAction,
 } from "react";
 import axios, { AxiosProgressEvent } from "axios";
 
 import { SERVER_CONFIG } from "../../constants/server";
+import { TBatch, TBatchList, EFileTypes } from "../App/App.types";
 import { FileUploadIcon } from "../subcomponents/Icon";
 
 import "./styles.css";
 
-const DragAndDrop = () => {
+interface IDragAndDrop {
+  batchList: TBatchList;
+  setBatchList: Dispatch<SetStateAction<TBatchList>>;
+}
+
+const DragAndDrop = ({ batchList, setBatchList }: IDragAndDrop) => {
   const overlayRef = useRef<HTMLDivElement>(null);
   const inputFileRef = useRef<HTMLInputElement>(null);
   const [fileList, setFileList] = useState<FileList | null>(null);
   const [custodianName, setCustodianName] = useState<string>("");
   const [isSwitched, setIsSwitched] = useState<boolean>(false);
   const [uploadPercentage, setUploadPercentage] = useState<number>(0);
+  const [fileType, setFileType] = useState<EFileTypes>(EFileTypes.UNSUPPORTED);
 
   // const [uploadedFile, setUploadedFile] = useState<>();
 
@@ -27,6 +36,32 @@ const DragAndDrop = () => {
     e.stopPropagation();
     e.preventDefault();
     (overlayRef.current as HTMLDivElement).classList.add("dragging");
+  };
+
+  const handleFileType = (fileList: FileList | null) => {
+    if (fileList) {
+      if (fileList.length > 1) {
+        setFileType(EFileTypes.MULTIPLE);
+      } else {
+        const _type = fileList[0].type;
+        console.log(_type);
+        console.log(_type.includes(EFileTypes.TEXT));
+        console.log(EFileTypes.TEXT);
+        if (_type.includes(EFileTypes.TEXT)) {
+          setFileType(EFileTypes.TEXT);
+        } else if (_type.includes(EFileTypes.IMAGE)) {
+          setFileType(EFileTypes.IMAGE);
+        } else if (_type.includes(EFileTypes.WORD)) {
+          setFileType(EFileTypes.WORD);
+        } else if (_type.includes(EFileTypes.SHEET)) {
+          setFileType(EFileTypes.SHEET);
+        } else if (_type.includes(EFileTypes.PDF)) {
+          setFileType(EFileTypes.PDF);
+        } else {
+          setFileType(EFileTypes.UNSUPPORTED);
+        }
+      }
+    }
   };
 
   const handleFiles = (
@@ -38,12 +73,19 @@ const DragAndDrop = () => {
     (overlayRef.current as HTMLDivElement).classList.remove("dragging");
     setIsSwitched(true);
 
+    // console.log(e);
+
     if (e.type === "change") {
       // Event from "Choose file button"
-      setFileList((e as ChangeEvent<HTMLInputElement>).target.files);
+      const _files = (e as ChangeEvent<HTMLInputElement>).target.files;
+      handleFileType(_files);
+
+      setFileList(_files);
     } else if (e.type === "drop") {
       // Event from drag & drop
-      setFileList((e as DragEvent<HTMLElement>).dataTransfer.files);
+      const _files = (e as DragEvent<HTMLElement>).dataTransfer.files;
+      handleFileType(_files);
+      setFileList(_files);
     }
   };
 
@@ -53,7 +95,10 @@ const DragAndDrop = () => {
 
   const handleBack = (e: MouseEvent) => {
     setIsSwitched(false);
-    console.log(fileList);
+    setFileList(null);
+    setCustodianName("");
+    setUploadPercentage(0);
+    setFileType(EFileTypes.UNSUPPORTED);
   };
 
   const handleSubmit = async (e: FormEvent) => {
@@ -70,40 +115,49 @@ const DragAndDrop = () => {
       }
     }
 
-    try {
-      const res = await axios.post("http://localhost:8080/upload", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-        onUploadProgress: (progressEvent: AxiosProgressEvent) => {
-          console.log(`HEY`);
-          console.log(progressEvent);
-          const { total, loaded } = progressEvent;
-          if (!!total && !!loaded) {
-            setUploadPercentage(Math.round((loaded * 100) / total));
-            Math.round((loaded * 100) / total);
-          }
+    const newBatch: TBatch = {
+      formData: formData,
+      custodianName: custodianName,
+      dataType: fileType,
+    };
 
-          // Clear percentage
-        },
-      });
+    // Note: Pass to Batch.tsx
+    setBatchList([...batchList, newBatch]);
 
-      if (res.data.isUploaded) {
-        // Update handler on Batches tsx
-        console.log(res.data.body[SERVER_CONFIG.CUSTODIAN_KEY]);
-        console.log(res.data.length);
-      } else {
-        // Negative scenario
-      }
-    } catch (err: any) {
-      if (err.response.status === 500) {
-        console.error(`Error 500: Internal Server Error`);
-      } else if (err.response.status === 400) {
-        console.log(`Error 400: Bad Request`);
-      } else {
-        console.error(err.response.data.message);
-      }
-    }
+    // try {
+    //   const res = await axios.post("http://localhost:8080/upload", formData, {
+    //     headers: {
+    //       "Content-Type": "multipart/form-data",
+    //     },
+    //     onUploadProgress: (progressEvent: AxiosProgressEvent) => {
+    //       console.log(progressEvent);
+    //       const { total, loaded } = progressEvent;
+    //       if (!!total && !!loaded) {
+    //         setUploadPercentage(Math.round((loaded * 100) / total));
+    //         console.log(Math.round((loaded * 100) / total));
+    //       }
+
+    //       // Clear percentage
+    //     },
+    //   });
+
+    //   if (res.data.isUploaded) {
+    //     // Update handler on Batches tsx
+    //     console.log(`%cUpload succesful`, "color: green");
+    //     const date = new Date();
+    //     setBatchList([...batchList, date.toLocaleTimeString()]);
+    //   } else {
+    //     // Negative scenario
+    //   }
+    // } catch (err: any) {
+    //   if (err.response.status === 500) {
+    //     console.error(`Error 500: Internal Server Error`);
+    //   } else if (err.response.status === 400) {
+    //     console.error(`Error 400: Bad Request`);
+    //   } else {
+    //     console.error(err.response.data.message);
+    //   }
+    // }
   };
 
   return (

@@ -1,3 +1,4 @@
+/* Batches */
 .batches-container {
   box-sizing: border-box;
   height: 100%;
@@ -5,6 +6,81 @@
   flex: 1 1 55%;
 }
 
-h1 {
-  color: rgb(36, 30, 30);
+.batches {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.batches-header {
+  margin-bottom: 16px;
+}
+
+.batches-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow: auto;
+  height: 100%;
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+/* Batch */
+.batch {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  border-radius: 8px;
+  /* box-shadow: var(--box-shadow); */
+  /* box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1); */
+  /* background-color: red; */
+}
+
+.batch-left-container {
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  margin-right: 24px;
+}
+
+.batch-right-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.batch-info {
+  height: 48px;
+  display: flex;
+  align-items: center;
+}
+
+.batch-info span {
+  font-weight: 600;
+}
+
+progress[value] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+}
+
+progress[value]::-webkit-progress-bar {
+  background-color: var(--brand-gray);
+}
+
+progress[value]::-webkit-progress-value {
+  background-image: linear-gradient(
+    90deg,
+    rgba(57, 121, 107, 1) 0%,
+    rgba(117, 164, 120, 1) 100%
+  );
+}
+
+progress.hidden {
+  visibility: hidden;
 }

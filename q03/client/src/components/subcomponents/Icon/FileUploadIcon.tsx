@@ -1,7 +1,7 @@
 import React from "react";
 
-import { IIcon } from "../Icon.types";
-import "../style.css";
+import { IIcon } from "./Icon.types";
+import "./style.css";
 
 const FileUploadIcon = (props: IIcon) => {
   return (
