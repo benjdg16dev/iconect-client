@@ -1,0 +1,145 @@
+:root {
+  /* Colors */
+  --brand-green: #8dc63f;
+  --brand-green-light: #8cc63f;
+  --brand-gray: #333333;
+  --neutral-grey-1: #eee;
+  --neutral-grey-2: #5e5e5e;
+  --neutral-white: #fff;
+  --neutral-white-2: #f5f5f5;
+
+  --primary-green: #a5d6a7;
+  --primary-light-green: #d7ffd9;
+  --primary-dark-green: #75a478;
+  --secondary-teal: #004d40;
+  --secondary-light-teal: #39796b;
+  --secondary-dark-teal: #00251a;
+  --background-amber: #fff8e1;
+  --background-light-amber: #ffffff;
+  --background-dark-amber: #ccc5af;
+
+  /* --linear-gradient-green: linear-gradient(
+    90deg,
+    rgba(140, 198, 63, 1) 0%,
+    rgba(97, 202, 122, 1) 55%,
+    rgba(0, 212, 255, 1) 100%
+  ); */
+  --linear-gradient-green: linear-gradient(
+    51deg,
+    rgba(201, 230, 163, 1) 0%,
+    rgba(239, 255, 218, 1) 50%,
+    rgba(201, 230, 163, 1) 100%
+  );
+  /* Values */
+  --border-radius: 8px;
+  --box-shadow: 1.4px 1px 5.5px rgba(0, 0, 0, 0.02),
+    3.4px 2.3px 13.3px rgba(0, 0, 0, 0.028),
+    6.4px 4.4px 25px rgba(0, 0, 0, 0.035),
+    11.4px 7.8px 44.7px rgba(0, 0, 0, 0.042),
+    21.3px 14.6px 83.6px rgba(0, 0, 0, 0.05),
+    51px 35px 200px rgba(0, 0, 0, 0.07);
+  --padding: 24px;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
+  height: 100vh;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+button {
+  box-sizing: border-box;
+  border: none;
+  border-radius: 4px;
+  padding: 0 16px;
+  min-width: 64px;
+  height: 36px;
+  vertical-align: middle;
+  text-align: center;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  color: var(--neutral-white);
+  background-color: var(--primary-dark-green);
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  font-family: var(
+    --pure-material-font,
+    "Roboto",
+    "Segoe UI",
+    BlinkMacSystemFont,
+    system-ui,
+    -apple-system
+  );
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 36px;
+  outline: none;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+}
+
+button.secondary {
+  background-color: var(--secondary-dark-teal);
+}
+
+/* Hover, Focus */
+button:hover {
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14),
+    0 1px 10px 0 rgba(0, 0, 0, 0.12);
+  background-color: var(--primary-green);
+}
+
+button.secondary:hover {
+  background-color: var(--secondary-teal);
+}
+
+/* Active */
+button:active {
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+/* Disabled */
+button:disabled {
+  color: var(--neutral-grey-2);
+  background-color: var(--neutral-grey-1);
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+input {
+  outline: none;
+  border: 2px solid var(--primary-dark-green);
+  border-radius: 4px;
+  color: var(--brand-gray);
+  font-size: 16px;
+  padding: 8px 4px;
+}
+
+input:hover {
+  border-color: var(--primary-green);
+}

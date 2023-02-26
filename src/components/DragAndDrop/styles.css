@@ -1,0 +1,96 @@
+.drag-and-drop-container {
+  height: 100%;
+  width: 100%;
+  flex: 1 1 45%;
+}
+
+.drag-and-drop-form {
+  height: 100%;
+  width: 100%;
+}
+
+.drag-and-drop {
+  box-sizing: border-box;
+  border: 4px dashed var(--primary-dark-green);
+  border-radius: var(--border-radius);
+  padding: 12px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.drag-and-drop-overlay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.drag-and-drop-overlay.dragging {
+  opacity: 0.5;
+}
+
+.drag-and-drop-icon {
+  margin-bottom: 18px;
+}
+
+.drag-and-drop-title {
+  color: var(--brand-gray);
+  margin-bottom: 36px;
+}
+
+.drag-and-drop-input {
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.drag-and-drop-input label {
+  color: var(--neutral-grey-2);
+  font-size: 14px;
+}
+
+input[type="file"]#input-file-upload {
+  display: none;
+}
+
+label#label-file-upload {
+  margin-top: 8px;
+}
+
+/* Custodian */
+.custodian {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.custodian-title {
+  margin: 0 0 18px 0;
+}
+
+.custodian-name-input {
+  width: 100%;
+  margin: 0 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+input#custodian-name {
+  margin: 0 0 8px 0;
+}
+
+.custodian-buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 8px;
+}
