@@ -10,27 +10,27 @@ File upload web application
 
 ### No file uploaded
 
-<img alt="no file uploaded" src="https://raw.githubusercontent.com/benjdg16dev/iconect-client/master/public/screenshots/1.png?token=GHSAT0AAAAAAB6Y7KUHJQW3JHW2I3RPQRGEY74BTZQ" width="500" />
+<img alt="no file uploaded" src="./public/screenshots/1.png" width="500" />
 
 ### Choosing a file
 
-<img alt="chosing a file" src="https://raw.githubusercontent.com/benjdg16dev/iconect-client/master/public/screenshots/2.png?token=GHSAT0AAAAAAB6Y7KUGIDK5H3KSCQJG4DEEY74BQWA" width="500" />
+<img alt="chosing a file" src="./public/screenshots/2.png" width="500" />
 
 ### Custodian input
 
-<img alt="custodian input" src="https://raw.githubusercontent.com/benjdg16dev/iconect-client/master/public/screenshots/3.png?token=GHSAT0AAAAAAB6Y7KUHMAMD3BHRX3LZJPOUY74BQ7A" width="500" />
+<img alt="custodian input" src="./public/screenshots/3.png" width="500" />
 
 ### Upload success
 
-<img alt="upload success" src="https://raw.githubusercontent.com/benjdg16dev/iconect-client/master/public/screenshots/4.png?token=GHSAT0AAAAAAB6Y7KUGMDOEJUAAA5XQC43CY74BRHQ" width="500" />
+<img alt="upload success" src="./public/screenshots/4.png" width="500" />
 
 ### Selecting multiple files
 
-<img alt="selecting multiple files" src="https://raw.githubusercontent.com/benjdg16dev/iconect-client/master/public/screenshots/5.png?token=GHSAT0AAAAAAB6Y7KUHDHLGPEN2RMP2OASYY74BR2Q" width="500" />
+<img alt="selecting multiple files" src="./public/screenshots/5.png" width="500" />
 
 ### Loading state
 
-<img alt="loading state" src="https://raw.githubusercontent.com/benjdg16dev/iconect-client/master/public/screenshots/6.png?token=GHSAT0AAAAAAB6Y7KUHGMNJY6BKYAAOSQ22Y74BSGQ" width="500" />
+<img alt="loading state" src="./public/screenshots/6.png" width="500" />
 
 ## Steps to run locally
 
