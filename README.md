@@ -6,6 +6,15 @@ File upload web application
 
 (File upload web app)[https://benjdg16dev-iconect-file-upload.onrender.com]
 
+## Screenshots:
+
+![No files uploaded]("")
+![Choosing a file]("")
+![Custodian input]("")
+![Upload succses]("")
+![Selecting multiple files]("")
+![Loading]("")
+
 ## Steps to run locally
 
 1. Clone
