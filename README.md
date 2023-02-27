@@ -8,12 +8,29 @@ File upload web application
 
 ## Screenshots:
 
-![No files uploaded]("")
-![Choosing a file]("")
-![Custodian input]("")
-![Upload succses]("")
-![Selecting multiple files]("")
-![Loading]("")
+### No file uploaded
+
+<img alt="no file uploaded" src="https://raw.githubusercontent.com/benjdg16dev/iconect-client/master/public/screenshots/1.png?token=GHSAT0AAAAAAB6Y7KUHTIEOMQZM257HXWMCY74BNYA" width="500" />
+
+### Choosing a file
+
+<img alt="chosing a file" src="https://raw.githubusercontent.com/benjdg16dev/iconect-client/master/public/screenshots/2.png?token=GHSAT0AAAAAAB6Y7KUGIDK5H3KSCQJG4DEEY74BQWA" width="500" />
+
+### Custodian input
+
+<img alt="custodian input" src="https://raw.githubusercontent.com/benjdg16dev/iconect-client/master/public/screenshots/3.png?token=GHSAT0AAAAAAB6Y7KUHMAMD3BHRX3LZJPOUY74BQ7A" width="500" />
+
+### Upload success
+
+<img alt="upload success" src="https://raw.githubusercontent.com/benjdg16dev/iconect-client/master/public/screenshots/4.png?token=GHSAT0AAAAAAB6Y7KUGMDOEJUAAA5XQC43CY74BRHQ" width="500" />
+
+### Selecting multiple files
+
+<img alt="selecting multiple files" src="https://raw.githubusercontent.com/benjdg16dev/iconect-client/master/public/screenshots/5.png?token=GHSAT0AAAAAAB6Y7KUHDHLGPEN2RMP2OASYY74BR2Q" width="500" />
+
+### Loading state
+
+<img alt="loading state" src="https://raw.githubusercontent.com/benjdg16dev/iconect-client/master/public/screenshots/6.png?token=GHSAT0AAAAAAB6Y7KUHGMNJY6BKYAAOSQ22Y74BSGQ" width="500" />
 
 ## Steps to run locally
 
