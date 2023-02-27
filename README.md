@@ -20,7 +20,7 @@ File upload web application
 
 - Custodian is a text input for a batch.
 
-## Stories (Must have)
+## Stories
 
 ### Must have
 
