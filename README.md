@@ -10,7 +10,7 @@ File upload web application
 
 ### No file uploaded
 
-<img alt="no file uploaded" src="https://raw.githubusercontent.com/benjdg16dev/iconect-client/master/public/screenshots/1.png?token=GHSAT0AAAAAAB6Y7KUHTIEOMQZM257HXWMCY74BNYA" width="500" />
+<img alt="no file uploaded" src="https://raw.githubusercontent.com/benjdg16dev/iconect-client/master/public/screenshots/1.png?token=GHSAT0AAAAAAB6Y7KUHJQW3JHW2I3RPQRGEY74BTZQ" width="500" />
 
 ### Choosing a file
 
