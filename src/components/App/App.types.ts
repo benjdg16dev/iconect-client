@@ -2,6 +2,7 @@ export type TBatch = {
   formData: FormData;
   custodianName: string;
   dataType: EFileTypes;
+  fileSize: string;
 };
 
 export type TBatchList = TBatch[];

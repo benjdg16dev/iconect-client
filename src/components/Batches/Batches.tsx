@@ -1,41 +1,29 @@
-import React, { useState, useEffect } from "react";
-
 import { TBatch, TBatchList } from "../App/App.types";
+import NoFilesFound from "../subcomponents/NoFilesFound";
 
-import Batch from "./Batch";
+import Batch from "../subcomponents/Batch";
 import "./style.css";
-
-const renderNoFiles = () => {
-  return <div className="no-files">No files uploaded.</div>;
-};
-
-const hasFiles = false;
 
 interface IBatches {
   batchList: TBatchList;
 }
 
 const Batches = ({ batchList }: IBatches) => {
-  // const [batches, setBatches] = useState<TBatchList>([]);
-
-  // useEffect(() => {
-  //   if (batchList) {
-  //     // Get latest
-  //   }
-  // }, [batchList]);
-
   return (
     <div className="batches-container">
       <div className="batches">
         <div className="batches-header">
-          <h1>Upload file</h1>
+          <h1>Uploaded file/s</h1>
         </div>
-        <div className="batches-body">
-          {/* {hasFiles ? <div className="list"></div> : renderNoFiles()} */}
-          {batchList
-            ? batchList.map((batch: TBatch) => <Batch batch={batch} />)
-            : null}
-        </div>
+        {batchList && batchList.length > 0 ? (
+          <ul className="batches-body">
+            {batchList.map((batch: TBatch, index) => (
+              <Batch key={index} batch={batch} />
+            ))}
+          </ul>
+        ) : (
+          <NoFilesFound />
+        )}
       </div>
     </div>
   );
