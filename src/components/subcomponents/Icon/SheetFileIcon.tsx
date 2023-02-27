@@ -1,5 +1,3 @@
-import React from "react";
-
 import { IIcon } from "./Icon.types";
 import "./style.css";
 

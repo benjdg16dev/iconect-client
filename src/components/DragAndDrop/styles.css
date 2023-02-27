@@ -10,7 +10,7 @@
 .drag-and-drop {
   box-sizing: border-box;
   border: 4px dashed var(--primary-dark-green);
-  border-radius: var(--border-radius);
+  border-radius: 8px;
   padding: 18px;
   /* height: 100%;
   width: 100%; */

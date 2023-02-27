@@ -1,4 +1,5 @@
-import DownloadIcon from "./DownloadIcon";
+import CheckIcon from "./CheckIcon";
+import CrossIcon from "./CrossIcon";
 import FileUploadIcon from "./FileUploadIcon";
 import FolderIcon from "./FolderIcon";
 import ImageIcon from "./ImageIcon";
@@ -9,7 +10,8 @@ import UnknownFileIcon from "./UnknownFileIcon";
 import WordFileIcon from "./WordFileIcon";
 
 export {
-  DownloadIcon,
+  CheckIcon,
+  CrossIcon,
   FileUploadIcon,
   FolderIcon,
   ImageIcon,

@@ -7,14 +7,18 @@
 
 .app-box {
   background-color: var(--neutral-white);
-  border-radius: var(--border-radius);
+  border-radius: 8px;
   box-sizing: border-box;
-  padding: 2rem;
-  box-shadow: var(--box-shadow);
+  padding: 32px;
+  box-shadow: 1.4px 1px 5.5px rgba(0, 0, 0, 0.02),
+    3.4px 2.3px 13.3px rgba(0, 0, 0, 0.028),
+    6.4px 4.4px 25px rgba(0, 0, 0, 0.035),
+    11.4px 7.8px 44.7px rgba(0, 0, 0, 0.042),
+    21.3px 14.6px 83.6px rgba(0, 0, 0, 0.05),
+    51px 35px 200px rgba(0, 0, 0, 0.07);
   display: flex;
   justify-content: center;
   align-items: center;
-
   margin: 48px;
   max-width: 1440px;
   width: auto;

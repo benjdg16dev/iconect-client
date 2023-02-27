@@ -1,18 +1,8 @@
-import React from "react";
-
 import "./style.css";
 
-interface INoFilesFound {
-  height?: number | string;
-  width?: number | string;
-}
-
-const NoFilesFound = ({ height, width }: INoFilesFound) => {
+const NoFilesFound = () => {
   return (
-    <div
-      className="no-files-found"
-      //   style={{ height: height ?? "100%", width: width ?? "100%" }}
-    >
+    <div className="no-files-found">
       <div className="no-files-found-svg">
         <svg
           xmlns="http://www.w3.org/2000/svg"

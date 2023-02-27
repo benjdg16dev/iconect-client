@@ -1,3 +1,11 @@
+/**
+ * @description Converts bytes to readable size format.
+ * Source: https://stackoverflow.com/questions/15900485/correct-way-to-convert-size-in-bytes-to-kb-mb-gb-in-javascript
+ * @param {number} bytes
+ * @param {number} [decimals=2]
+ * @returns {string}
+ */
+
 export const formatBytes = (bytes: number, decimals = 2): string => {
   if (!+bytes) return "0 Bytes";
 
